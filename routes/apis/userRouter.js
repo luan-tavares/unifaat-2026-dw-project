@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import ListUserController from '../../app/Controllers/User/ListUserController.js';
-import GetUserController from '../../app/Controllers/User/GetUserController.js';
-import CreateUserController from '../../app/Controllers/User/CreateUserController.js';
-import UpdateUserController from '../../app/Controllers/User/UpdateUserController.js';
-import DeleteUserController from '../../app/Controllers/User/DeleteUserController.js';
+import ListUserController from '../../app/Controllers/UserApi/ListUserController.js';
+import GetUserController from '../../app/Controllers/UserApi/GetUserController.js';
+import CreateUserController from '../../app/Controllers/UserApi/CreateUserController.js';
+import UpdateUserController from '../../app/Controllers/UserApi/UpdateUserController.js';
+import DeleteUserController from '../../app/Controllers/UserApi/DeleteUserController.js';
 
 export default (() => {
     const router = Router();
