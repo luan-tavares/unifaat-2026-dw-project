@@ -8,6 +8,8 @@ import Return404Controller from '../app/Controllers/Return404Controller.js';
 import EnvironmentController from '../app/Controllers/EnvironmentController.js';
 import userRouter from './apis/userRouter.js';
 import addressRouter from './apis/addressRouter.js';
+import EnvironmentController from '../app/Controllers/EnvironmentController.js';
+import courseRouter from './apis/courseRouter.js';
 
 const router = Router();
 
@@ -29,6 +31,12 @@ router.use("/users", userRouter);
 
 /** Address - TF 09 */
 router.use("/addresses", addressRouter);
+
+/** Course - TF 11 */
+router.use("/courses", courseRouter);
+
+/** Environment - TF 10 */
+router.get("/ambiente", EnvironmentController);
 
 /** Fallback 404 para arquivos/páginas não encontrados */
 router.use(Return404Controller);

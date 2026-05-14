@@ -18,5 +18,6 @@ export default (() => {
 
     router.delete('/:id', DeleteAddressController);
 
+
     return router;
 })();
