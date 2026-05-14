@@ -14,6 +14,7 @@ export default async function CreateAddressController(request, response) {
             error.push("district obrigatório!");
         }
 
+        
         if (!city) {
             error.push("city obrigatório!");
         }
