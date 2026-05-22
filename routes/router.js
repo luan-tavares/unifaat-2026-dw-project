@@ -15,3 +15,25 @@ router.get('/arquivo', GetFileController);
 
 // Rota para listar arquivos na pasta 'public'
 router.get('/', ListFilesController);
+
+/** Servir o public estaticamente */
+router.use(express.static(path.join(CONSTANTS.DIR, 'public')));
+
+/** APIS REST */
+
+/** Users */
+router.use("/users", userRouter);
+
+/** Address - TF 09 */
+router.use("/addresses", addressRouter);
+
+/** Course - TF 11 */
+router.use("/courses", courseRouter);
+
+/** Environment - TF 10 */
+router.get("/ambiente", EnvironmentController);
+
+/** Fallback 404 para arquivos/páginas não encontrados */
+router.use(Return404Controller);
+
+export default router;
