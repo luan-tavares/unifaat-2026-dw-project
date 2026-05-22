@@ -1,3 +1,4 @@
+
 import express from 'express';
 import chalk from 'chalk';
 
@@ -14,7 +15,7 @@ const web = express();
 /** Registrar as Rotas */
 web.use('/', router);
 
-const port = process.env.NODE_WEB_PORT;
+const port = process.env.NODE_WEB_PORT || 3000;
 
 web.listen(port, () => {
     console.log(chalk.green(`Servidor node web rodando na porta ${port}`));

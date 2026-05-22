@@ -1,0 +1,103 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documentação do Resource Course",
+    "description": "Especificação das rotas de Cursos para a disciplina de Desenvolvimento Web",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Courses",
+      "description": "Gerenciamento de Cursos do Sistema"
+    }
+  ],
+  "paths": {
+    "/courses": {
+      "get": {
+        "tags": ["Courses"],
+        "summary": "Lista todos os cursos cadastrados",
+        "operationId": "ListCourseController",
+        "responses": {
+          "200": {
+            "description": "Lista de cursos retornada com sucesso"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Courses"],
+        "summary": "Cria um novo curso",
+        "operationId": "CreateCourseController",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": { "type": "string", "example": "Análise e Desenvolvimento de Sistemas" },
+                  "description": { "type": "string", "example": "Curso superior focado em tecnologia." },
+                  "duration": { "type": "integer", "example": 5 }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": { "description": "Curso criado com sucesso" }
+          }
+        }
+      }
+    },
+    "/courses/{id}": {
+      "get": {
+        "tags": ["Courses"],
+        "summary": "Busca detalhes de um curso específico por ID",
+        "operationId": "GetCourseController",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Curso encontrado com sucesso" },
+          "404": { "description": "Curso não encontrado" }
+        }
+      },
+      "put": {
+        "tags": ["Courses"],
+        "summary": "Atualiza os dados de um curso existente",
+        "operationId": "UpdateCourseController",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" },
+                  "duration": { "type": "integer" }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": { "description": "Curso atualizado com sucesso" }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Courses"],
+        "summary": "Remove um curso do sistema",
+        "operationId": "DeleteCourseController",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "204": { "description": "Curso removido com sucesso" }
+        }
+      }
+    }
+  }
+}

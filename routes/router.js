@@ -17,6 +17,7 @@ import fileUpload from 'express-fileupload';
 import swaggerUi from 'swagger-ui-express';
 import LoginController from '../app/Http/Controllers/LoginController.js';
 import AuthMiddleware from '../app/Http/Middlewares/AuthMiddleware.js';
+import LogMiddleware from '../app/Http/Middlewares/LogMiddleware.js';
 import SwaggerDoc from '../app/Http/SwaggerDoc.js';
 
 const router = Router();
@@ -26,6 +27,7 @@ const router = Router();
  * Permite receber e processar dados JSON no body das requisições
  */
 router.use(express.json());
+router.use(LogMiddleware);
 
 /**
  * Middleware para parsear requisições com Content-Type: application/x-www-form-urlencoded
